@@ -10,12 +10,20 @@ function IsTheNextNumberIncreased(num1, num2) {
     }
     else return false;
 }
-let larger = 0;
-fs.readFile("input.txt",'utf-8', function(err, data){
-    let dataArr = data.split("\n");
+
+function parseTextFileToArr() {
+    fs.readFile("input.txt",'utf-8', function(err, data){
+        let dataArr = data.split("\n")
+        partOne(dataArr);
+        partTwo(dataArr);
+    });
+}
+
+function partOne(dataArr){
+    let larger = 0;
     let previousVal = 0;
     let newVal = 0;
-    for(let i = 0; i < data.length; i++){
+    for(let i = 0; i < dataArr.length; i++){
         if(i === 0){
             previousVal = dataArr[i];
         }else{
@@ -25,4 +33,12 @@ fs.readFile("input.txt",'utf-8', function(err, data){
         }
     }
     console.log("Amount of larger numbers are: " + larger)
-})
+}
+
+function partTwo(){
+    
+}
+
+
+//----------------------PROGRAM I STARTED HERE!------------------------------
+parseTextFileToArr();
