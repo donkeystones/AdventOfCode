@@ -1,0 +1,15 @@
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.csproj.AssemblyReference.cache
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.GeneratedMSBuildEditorConfig.editorconfig
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.AssemblyInfoInputs.cache
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.AssemblyInfo.cs
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.csproj.CoreCompileInputs.cache
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.exe
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.deps.json
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.runtimeconfig.json
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.runtimeconfig.dev.json
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.dll
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\AdventOfCode2021.pdb
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.dll
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.pdb
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.genruntimeconfig.cache
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\Day1\input.txt

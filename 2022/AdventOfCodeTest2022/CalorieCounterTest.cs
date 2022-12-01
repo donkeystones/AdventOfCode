@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace AdventOfCodeTest2022 {
 	public class CalorieCounterTest {
 		string data;
-		CalorieCounter counter = new CalorieCounter();
+		readonly CalorieCounter counter = new CalorieCounter();
 		[SetUp]
 		public void Setup() {
 			
@@ -40,6 +40,13 @@ namespace AdventOfCodeTest2022 {
 			data = "200\n\n300\n\n5000\n\n100\n\n6000\n\n200\n\n4000";
 			List<Elve> elves = counter.ParseElveCalorieData(data);
 			Assert.AreEqual(15000, counter.SumOfTopThreeCalorieCountElves(elves));
+		}
+
+		[Test]
+		public void SumOfTopThreeCalorieCountOnElveButTheyAreSameValue() {
+			data = "200\n\n300\n\n4000\n\n100\n\n4000\n\n200\n\n4000";
+			List<Elve> elves = counter.ParseElveCalorieData(data);
+			Assert.AreEqual(12000, counter.SumOfTopThreeCalorieCountElves(elves));
 		}
 
 
