@@ -205,3 +205,4 @@ C:\Pet_Projects\AdventOfCode\2022\AdventOfCodeTest2022\obj\Debug\netcoreapp3.1\A
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCodeTest2022\obj\Debug\netcoreapp3.1\AdventOfCodeTest2022.pdb
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCodeTest2022\obj\Debug\netcoreapp3.1\AdventOfCodeTest2022.genruntimeconfig.cache
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCodeTest2022\bin\Debug\netcoreapp3.1\Day1\input.txt
+C:\Pet_Projects\AdventOfCode\2022\AdventOfCodeTest2022\bin\Debug\netcoreapp3.1\Day2\input.txt

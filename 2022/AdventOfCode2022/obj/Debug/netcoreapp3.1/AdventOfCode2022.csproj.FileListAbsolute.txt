@@ -27,3 +27,4 @@ C:\Pet_Projects\AdventOfCode\2022\AdventOfCode2022\obj\Debug\netcoreapp3.1\Adven
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCode2022\obj\Debug\netcoreapp3.1\AdventOfCode2022.pdb
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCode2022\obj\Debug\netcoreapp3.1\AdventOfCode2022.genruntimeconfig.cache
 C:\Pet_Projects\AdventOfCode\2022\AdventOfCode2022\bin\Debug\netcoreapp3.1\Day1\input.txt
+C:\Pet_Projects\AdventOfCode\2022\AdventOfCode2022\bin\Debug\netcoreapp3.1\Day2\input.txt
