@@ -206,3 +206,4 @@ C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCodeTest2021\obj\Debu
 C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCodeTest2021\obj\Debug\netcoreapp3.1\AdventOfCodeTest2021.dll
 C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCodeTest2021\obj\Debug\netcoreapp3.1\AdventOfCodeTest2021.pdb
 C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCodeTest2021\obj\Debug\netcoreapp3.1\AdventOfCodeTest2021.genruntimeconfig.cache
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCodeTest2021\bin\Debug\netcoreapp3.1\Day2\input.txt

@@ -26,7 +26,7 @@ namespace AdventOfCodeTest2021.Day2
         public void MoveDownIncreasesDepthAxis() {
             subNav.ResetCoordinates();
             subNav.MoveDown(5);
-            Assert.AreEqual(5, subNav.GetCoordinates().Y);
+            Assert.AreEqual(5, subNav.GetCoordinates().Aim);
         }
 
         [Test]
@@ -34,13 +34,31 @@ namespace AdventOfCodeTest2021.Day2
             subNav.ResetCoordinates();
             subNav.MoveDown(5);
             subNav.MoveUp(2);
-            Assert.AreEqual(3, subNav.GetCoordinates().Y);
+            Assert.AreEqual(3, subNav.GetCoordinates().Aim);
         }
 
         [Test]
-        public void CommandParserShouldResultInChangedCoordinates() {
-            string commands = "forward 5\ndown 5\nforward\nup 3\ndown 8\forward 2";
+        public void LoadCommandsWithStringShouldResultInSixCommands() {
+            string commands = "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2";
+            subNav.LoadCommands(commands);
+            Assert.AreEqual(6, subNav.Commands.Count);
+        }
 
+        [Test]
+        public void DriveShouldResultInDepthTenAndHorizontalFifteen() {
+            string commands = "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2";
+            subNav.LoadCommands(commands);
+            subNav.Drive();
+            Assert.AreEqual(15, subNav.GetCoordinates().X);
+            Assert.AreEqual(60, subNav.GetCoordinates().Y);
+        }
+
+        [Test]
+        public void GetDuplicationOfXAndY() {
+            string commands = "forward 5\ndown 5\nforward 8\nup 3\ndown 8\nforward 2";
+            subNav.LoadCommands(commands);
+            subNav.Drive();
+            Assert.AreEqual(900, subNav.GetMultiplicationOfXAndY());
         }
     }
 }
