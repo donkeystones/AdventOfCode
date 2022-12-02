@@ -29,3 +29,4 @@ C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\ne
 C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.pdb
 C:\Users\oscar\Documents\AdventOfCode\2021\C-Sharp\AdventOfCode2021\obj\Debug\netcoreapp3.1\AdventOfCode2021.genruntimeconfig.cache
 C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\Day2\input.txt
+C:\Pet_Projects\AdventOfCode\2021\C-Sharp\AdventOfCode2021\bin\Debug\netcoreapp3.1\Day3\input.txt
