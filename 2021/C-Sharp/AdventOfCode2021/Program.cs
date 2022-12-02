@@ -25,10 +25,12 @@ namespace AdventOfCode2021 {
 		//}
 
 		static void Main(string[] args) {
-			string data = System.IO.File.ReadAllText("./Day3/input.txt");
-			Console.WriteLine(data);
-			SubmarineDiagnostic subdiagnostic = new SubmarineDiagnostic();
-			subdiagnostic.LoadData(data);
+            string text = "";
+            foreach (string line in System.IO.File.ReadLines("./Day3/input.txt")) {
+                text += line + "\n";
+            }
+            SubmarineDiagnostic subdiagnostic = new SubmarineDiagnostic();
+			subdiagnostic.LoadData(text);
 			Console.WriteLine("Epsilon: " + subdiagnostic.GetEpsilon());
 			Console.WriteLine("Gamma: " + subdiagnostic.GetGamma());
 			Console.WriteLine("Epsilon*Gamma: " + subdiagnostic.GetEpsilonTimesGamma());

@@ -10,26 +10,63 @@ namespace AdventOfCodeTest2021 {
 		string data;
 		[SetUp]
 		public void Setup() {
-			data = "00100\n11110\n10110\n10111\n10101\n01111\n00111\n11100\n10000\n11001\n00010\n01010";
             subdiagnostic = new SubmarineDiagnostic();
-		}
-
+        }
+		
 		[Test]
 		public void FindGammaValue() {
-			subdiagnostic.LoadData(data);
+            data = "00100\n11110\n10110\n10111\n10101\n01111\n00111\n11100\n10000\n11001\n00010\n01010";
+            subdiagnostic.LoadData(data);
 			Assert.AreEqual(22, subdiagnostic.GetGamma());
 		}
 
 		[Test]
 		public void FindEpsilonValue() {
-			subdiagnostic.LoadData(data);
+            data = "00100\n11110\n10110\n10111\n10101\n01111\n00111\n11100\n10000\n11001\n00010\n01010";
+            subdiagnostic.LoadData(data);
 			Assert.AreEqual(9, subdiagnostic.GetEpsilon());
 		}
 
 		[Test]
 		public void EpsilonTimesGamma() {
-			subdiagnostic.LoadData(data);
+            data = "00100\n11110\n10110\n10111\n10101\n01111\n00111\n11100\n10000\n11001\n00010\n01010";
+            subdiagnostic.LoadData(data);
 			Assert.AreEqual(198, subdiagnostic.GetEpsilonTimesGamma());
 		}
-	}
+
+		//OB TODO: Add test with more bits in a row
+		[Test]
+		public void FindGammaValueNineBits() {
+			data = "010011011\n010010110\n101100110\n010011001\n101111000";
+			subdiagnostic.LoadData(data);
+			Assert.AreEqual(154, subdiagnostic.GetGamma());
+        }
+
+		[Test]
+        public void FindEpsilonValueNineBits() {
+            data = "010011011\n010010110\n101100110\n010011001\n101111000";
+            subdiagnostic.LoadData(data);
+            Assert.AreEqual(357, subdiagnostic.GetEpsilon());
+        }
+
+		[Test]
+        public void EpsilonTimesGammaNineBits() {
+            data = "010011011\n010010110\n101100110\n010011001\n101111000";
+            subdiagnostic.LoadData(data);
+            Assert.AreEqual(54978, subdiagnostic.GetEpsilonTimesGamma());
+        }
+
+		//Needed fix in order to make sure it gets the right input
+		[Test]
+		public void GammaEpsilonAndMultiplyFromInputTxt() {
+			string text = "";
+			foreach (string line in System.IO.File.ReadLines("./Day3/input.txt")) {
+				text += line + "\n";
+			}
+            subdiagnostic.LoadData(text);
+			Assert.AreEqual(2581, subdiagnostic.GetGamma());
+			Assert.AreEqual(1514, subdiagnostic.GetEpsilon());
+			Assert.AreEqual(3907634, subdiagnostic.GetEpsilonTimesGamma());
+		}
+    }
 }

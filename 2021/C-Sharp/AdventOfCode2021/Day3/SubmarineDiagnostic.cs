@@ -9,8 +9,13 @@ namespace AdventOfCode2021.Day3 {
 		public void LoadData(string data) {
 			string[] dataArr = data.Split("\n");
 			foreach(string str in dataArr) {
-				if(str != "")
-					bitColumns.Add(str);
+				if (str != "") {
+                    string temp = "";
+                    for (int i = 0; i < str.Length; i++) {
+						temp += str.Substring(i);
+                    }
+                    bitColumns.Add(str);
+				}
 			}
 		}
 
@@ -31,7 +36,7 @@ namespace AdventOfCode2021.Day3 {
                 char[] strArr = str.ToCharArray();
 
                 for (int i = 0; i < strArr.Length; i++) {
-                    if (strArr[i] == '1')
+                    if (strArr[i] == '1' && strArr[i] != '\r')
                         commonBits[i] += 1;
                     else
                         commonBits[i] -= 1;
