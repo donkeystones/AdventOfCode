@@ -26,6 +26,7 @@ namespace AdventOfCode2021 {
 
 		static void Main(string[] args) {
 			string data = System.IO.File.ReadAllText("./Day3/input.txt");
+			Console.WriteLine(data);
 			SubmarineDiagnostic subdiagnostic = new SubmarineDiagnostic();
 			subdiagnostic.LoadData(data);
 			Console.WriteLine("Epsilon: " + subdiagnostic.GetEpsilon());

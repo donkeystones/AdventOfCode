@@ -7,30 +7,29 @@ using NUnit.Framework;
 namespace AdventOfCodeTest2021 {
 	public class SubmarineDiagnosticTest {
 		SubmarineDiagnostic subdiagnostic;
+		string data;
 		[SetUp]
 		public void Setup() {
-			subdiagnostic = new SubmarineDiagnostic();
+			data = "00100\n11110\n10110\n10111\n10101\n01111\n00111\n11100\n10000\n11001\n00010\n01010";
+            subdiagnostic = new SubmarineDiagnostic();
 		}
 
 		[Test]
 		public void FindGammaValue() {
-			string data = "1010101\n0010011\n1000010\n1110011";
 			subdiagnostic.LoadData(data);
-			Assert.AreEqual(83, subdiagnostic.GetGamma());
+			Assert.AreEqual(22, subdiagnostic.GetGamma());
 		}
 
 		[Test]
 		public void FindEpsilonValue() {
-			string data = "1010101\n0010011\n1000010\n1110011";
 			subdiagnostic.LoadData(data);
-			Assert.AreEqual(44, subdiagnostic.GetEpsilon());
+			Assert.AreEqual(9, subdiagnostic.GetEpsilon());
 		}
 
 		[Test]
 		public void EpsilonTimesGamma() {
-			string data = "1010101\n0010011\n1000010\n1110011";
 			subdiagnostic.LoadData(data);
-			Assert.AreEqual(3652, subdiagnostic.GetEpsilonTimesGamma());
+			Assert.AreEqual(198, subdiagnostic.GetEpsilonTimesGamma());
 		}
 	}
 }

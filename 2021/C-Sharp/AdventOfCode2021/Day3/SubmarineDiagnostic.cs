@@ -22,43 +22,28 @@ namespace AdventOfCode2021.Day3 {
 			return Convert.ToInt32(FilterEpsilonData(), 2);
 		}
 
+		private int[] getCommonBits() {
+            int[] commonBits = null;
+            foreach (string str in bitColumns) {
+                if (commonBits == null) {
+                    commonBits = new int[str.Length];
+                }
+                char[] strArr = str.ToCharArray();
+
+                for (int i = 0; i < strArr.Length; i++) {
+                    if (strArr[i] == '1')
+                        commonBits[i] += 1;
+                    else
+                        commonBits[i] -= 1;
+                }
+            }
+			return commonBits;
+        }
+
 		private string FilterEpsilonData() {
-			int[] commonBits = new int[] { 0, 0, 0, 0, 0, 0, 0 };
-			foreach(string str in bitColumns) {
-				char[] strArr = str.ToCharArray();
-
-				if(strArr[0] == '1')
-					commonBits[0] += 1;
-				else
-					commonBits[0] -= 1;
-				if(strArr[1] == '1')
-					commonBits[1] += 1;
-				else
-					commonBits[1] -= 1;
-				if(strArr[2] == '1')
-					commonBits[2] += 1;
-				else
-					commonBits[2] -= 1;
-				if(strArr[3] == '1')
-					commonBits[3] += 1;
-				else
-					commonBits[3] -= 1;
-				if(strArr[4] == '1')
-					commonBits[4] += 1;
-				else
-					commonBits[4] -= 1;
-				if(strArr[5] == '1')
-					commonBits[5] += 1;
-				else
-					commonBits[5] -= 1;
-				if(strArr[6] == '1')
-					commonBits[6] += 1;
-				else
-					commonBits[6] -= 1;
-
-			}
+			int[] commonBits = getCommonBits();
 			string final = "";
-			for(int i = 0;i <= 6;i++) {
+			for(int i = 0;i < commonBits.Length;i++) {
 				if(commonBits[i] < 0)
 					final += "1";
 				else
@@ -67,52 +52,20 @@ namespace AdventOfCode2021.Day3 {
 			return final;
 		}
 
-		public double GetEpsilonTimesGamma() {
+        private string FilterGammaData() {
+            int[] commonBits = getCommonBits();
+            string final = "";
+            for (int i = 0; i < commonBits.Length; i++) {
+                if (commonBits[i] > 0)
+                    final += "1";
+                else
+                    final += "0";
+            }
+            return final;
+        }
+
+        public double GetEpsilonTimesGamma() {
 			return GetEpsilon() * GetGamma();
-		}
-
-		private string FilterGammaData() {
-			int[] commonBits = new int[] { 0, 0, 0, 0, 0, 0, 0 };
-			foreach(string str in bitColumns) {
-				char[] strArr = str.ToCharArray();
-
-				if(strArr[0] == '1')
-					commonBits[0] += 1;
-				else
-					commonBits[0] -= 1;
-				if(strArr[1] == '1')
-					commonBits[1] += 1;
-				else
-					commonBits[1] -= 1;
-				if(strArr[2] == '1')
-					commonBits[2] += 1;
-				else
-					commonBits[2] -= 1;
-				if(strArr[3] == '1')
-					commonBits[3] += 1;
-				else
-					commonBits[3] -= 1;
-				if(strArr[4] == '1')
-					commonBits[4] += 1;
-				else
-					commonBits[4] -= 1;
-				if(strArr[5] == '1')
-					commonBits[5] += 1;
-				else
-					commonBits[5] -= 1;
-				if(strArr[6] == '1')
-					commonBits[6] += 1;
-				else
-					commonBits[6] -= 1;
-			}
-			string final = "";
-			for(int i = 0; i <= 6;i++) {
-				if(commonBits[i] > 0)
-					final += "1";
-				else
-					final += "0";
-			}
-			return final;
 		}
 	}
 }
