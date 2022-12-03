@@ -34,6 +34,8 @@ namespace AdventOfCode2021 {
 			Console.WriteLine("Epsilon: " + subdiagnostic.GetEpsilon());
 			Console.WriteLine("Gamma: " + subdiagnostic.GetGamma());
 			Console.WriteLine("Epsilon*Gamma: " + subdiagnostic.GetEpsilonTimesGamma());
+
+			Console.WriteLine("Life support value: " + subdiagnostic.GetLifeSupportRating());
 		}
 	}
 }

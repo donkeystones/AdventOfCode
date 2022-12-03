@@ -45,6 +45,8 @@ namespace AdventOfCode2021.Day3 {
 			return commonBits;
         }
 
+
+
 		private string FilterEpsilonData() {
 			int[] commonBits = getCommonBits();
 			string final = "";
@@ -72,5 +74,51 @@ namespace AdventOfCode2021.Day3 {
         public double GetEpsilonTimesGamma() {
 			return GetEpsilon() * GetGamma();
 		}
-	}
+
+        public int GetOxygenGeneretionVal() {
+            List<string> ones;
+            List<string> zeros;
+            List<string> temp = bitColumns;
+            for(int i = 0; i < temp[0].Length; i++) {
+                zeros = new List<string>();
+                ones = new List<string>();
+                for (int j = 0; j < temp.Count; j++) {
+                    if (temp[j].ToCharArray()[i] == '1') ones.Add(temp[j]);
+                    else zeros.Add(temp[j]);
+                }
+                if ((ones.Count != 0 && zeros.Count == 0) || (zeros.Count < ones.Count && ones.Count != 0) || (zeros.Count == ones.Count)) {
+                    temp = ones;
+                } else {
+                    temp = zeros;
+                }
+            }
+
+            return Convert.ToInt32(temp[0], 2);
+        }
+
+        public int GetCO2ScrubbingVal() {
+            List<string> ones;
+            List<string> zeros;
+            List<string> temp = bitColumns;
+            for (int i = 0; i < temp[0].Length; i++) {
+                zeros = new List<string>();
+                ones = new List<string>();
+                for (int j = 0; j < temp.Count; j++) {
+                    if (temp[j].ToCharArray()[i] == '1') ones.Add(temp[j]);
+                    else zeros.Add(temp[j]);
+                }
+                if ((zeros.Count != 0 && ones.Count == 0) || (zeros.Count < ones.Count && zeros.Count != 0) || (zeros.Count == ones.Count)) {
+                    temp = zeros;
+                } else {
+                    temp = ones;
+                }
+            }
+
+            return Convert.ToInt32(temp[0], 2);
+        }
+
+        public double GetLifeSupportRating() {
+            return GetOxygenGeneretionVal() * GetCO2ScrubbingVal();
+        }
+    }
 }

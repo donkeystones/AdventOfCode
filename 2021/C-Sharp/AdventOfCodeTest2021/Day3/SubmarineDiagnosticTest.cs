@@ -56,7 +56,6 @@ namespace AdventOfCodeTest2021 {
             Assert.AreEqual(54978, subdiagnostic.GetEpsilonTimesGamma());
         }
 
-		//Needed fix in order to make sure it gets the right input
 		[Test]
 		public void GammaEpsilonAndMultiplyFromInputTxt() {
 			string text = "";
@@ -68,5 +67,26 @@ namespace AdventOfCodeTest2021 {
 			Assert.AreEqual(1514, subdiagnostic.GetEpsilon());
 			Assert.AreEqual(3907634, subdiagnostic.GetEpsilonTimesGamma());
 		}
+
+		[Test]
+		public void GetOxygenGeneratorRating() {
+            data = "010011011\n010010110\n101100110\n010011001\n101111000";
+			subdiagnostic.LoadData(data);
+			Assert.AreEqual(155, subdiagnostic.GetOxygenGeneretionVal());
+        }
+
+		[Test]
+		public void GetCO2ScrubbingValue() {
+            data = "010011011\n010010110\n101100110\n010011001\n101111000";
+            subdiagnostic.LoadData(data);
+            Assert.AreEqual(358, subdiagnostic.GetCO2ScrubbingVal());
+        }
+
+		[Test]
+		public void GetLifeSupportRating() {
+            data = "010011011\n010010110\n101100110\n010011001\n101111000";
+            subdiagnostic.LoadData(data);
+			Assert.AreEqual(55490, subdiagnostic.GetLifeSupportRating());
+        }
     }
 }
