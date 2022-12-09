@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace AdventOfCode2022.Day5 {
-	public class SupplyStackOrganizer {
+	public class CrateMover9000 {
 		public List<Stack<char>> Stacks { get; internal set; }
 		public List<Move> Moves { get; internal set; }
 
@@ -62,12 +62,47 @@ namespace AdventOfCode2022.Day5 {
 			string[] dataArr = data.Split("\n");
 			string[] move;
 			foreach(string str in dataArr) {
-				move = str.Split(" ");
-				Moves.Add(new Move() {
-					Amount = int.Parse(move[1]),
-					FromStack = int.Parse(move[3]),
-					ToStack = int.Parse(move[5])
-				});
+				if(str != "") {
+					move = str.Split(" ");
+					Moves.Add(new Move() {
+						Amount = int.Parse(move[1]),
+						FromStack = int.Parse(move[3]),
+						ToStack = int.Parse(move[5])
+					});
+				}
+			}
+		}
+
+		public void ExecuteMovesOnStack() {
+			foreach(Move move in Moves) {
+				Move(move.Amount, move.FromStack, move.ToStack);
+			}
+			Moves.Clear();
+		}
+
+		public void ParseData(string data) {
+			string[] stacksAndMoves = data.Split("\n\n");
+			ParseStacks(stacksAndMoves[0]);
+			ParseMoves(stacksAndMoves[1]);
+		}
+
+		public string GetTopBoxes() {
+			string res = "";
+			for(int i = 0; i < Stacks.Count ;i++) {
+				res += Stacks[i].Peek();
+			}
+			return res;
+		}
+
+		public void ExecuteMovesOnStack9001Style() {
+			foreach(Move move in Moves) {
+				Stack<char> temp = new Stack<char>();
+				for(int i = 0; i < move.Amount;i++) {
+					temp.Push(Stacks[move.FromStack - 1].Pop());
+				}
+				foreach(char c in temp) {
+					Stacks[move.ToStack - 1].Push(c);
+				}
 			}
 		}
 	}

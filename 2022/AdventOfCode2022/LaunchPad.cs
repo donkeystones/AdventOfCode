@@ -5,6 +5,7 @@ using AdventOfCode2022.Day1;
 using AdventOfCode2022.Day2;
 using AdventOfCode2022.Day3;
 using AdventOfCode2022.Day4;
+using AdventOfCode2022.Day5;
 
 namespace AdventOfCode2022 {
 	public class LaunchPad {
@@ -61,9 +62,26 @@ namespace AdventOfCode2022 {
 		}
 
 		public void Day5() {
+			string data = "";
+			foreach(string str in System.IO.File.ReadLines("./Day5/input.txt")) {
+				data += str + "\n";
+			}
 
+			CrateMover9000 organizer = new CrateMover9000();
+			organizer.ParseData(data);
+			organizer.ExecuteMovesOnStack9001Style();
+			Console.WriteLine("Top boxes: " + organizer.GetTopBoxes());
+		}
+
+		public void Day6() {
+			string data = "";
+			foreach(string str in System.IO.File.ReadLines("./Day6/input.txt")) {
+				data += str;
+			}
+
+			CommunicationTuner tuner = new CommunicationTuner();
+			Console.WriteLine("Start of packet index: " + tuner.GetStartOfPacketMarkerIndex(data));
+			Console.WriteLine("Start of message index: " + tuner.GetStartOfMessageMarkerIndex(data));
 		}
 	}
-
-	
 }
