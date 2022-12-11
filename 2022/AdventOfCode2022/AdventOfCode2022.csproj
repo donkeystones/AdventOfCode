@@ -26,8 +26,4 @@
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Day7\" />
-  </ItemGroup>
-
 </Project>
