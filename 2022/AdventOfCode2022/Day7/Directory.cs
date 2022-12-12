@@ -22,10 +22,14 @@ namespace AdventOfCode2022.Day7 {
 			Files.Add(file);
 		}
 
-		public double GetDirectorySize() {
+		public int GetDirectorySize() {
+			int total = 0;
 			if(Files.Count == 0 && ChildDirectories.Count == 0)
 				return 0;
-			return Files.Sum(file => file.Size);
+			if(ChildDirectories.Count != 0)
+				total += ChildDirectories.Sum(dir => dir.GetDirectorySize());
+			total += Files.Sum(file => file.Size);
+			return total;
 		}
 	}
 }

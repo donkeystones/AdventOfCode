@@ -57,5 +57,16 @@ namespace AdventOfCodeTest2022.Day7 {
 
 			Assert.AreEqual(0, dirManager.CurrentDirectory.GetDirectorySize());
 		}
+
+		[Test]
+		public void GetDirectorySizeWithChildFoldersAndOneFileOnBoth() {
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+
+			dirManager.CurrentDirectory.CreateFile(new File("study.txt", 100000));
+			dirManager.CurrentDirectory.CreateChildDirectory(new Directory("B"));
+			dirManager.CurrentDirectory.ChildDirectories[0].CreateFile(new File("Study.txt", 1000));
+
+			Assert.AreEqual(101000, dirManager.CurrentDirectory.GetDirectorySize());
+		}
 	}
 }
