@@ -3,10 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 
 namespace AdventOfCode2022.Day7 {
-<<<<<<< Updated upstream
-    public class DirectoryManager {
-    }
-=======
+
 	public class DirectoryManager {
 		public DirectoryManager() {
 			RootDir = new Directory("/");
@@ -18,5 +15,4 @@ namespace AdventOfCode2022.Day7 {
 			CurrentDirectory = rootDir;
 		}
 	}
->>>>>>> Stashed changes
 }

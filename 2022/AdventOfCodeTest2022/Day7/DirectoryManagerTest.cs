@@ -6,16 +6,6 @@ using NUnit.Framework;
 
 namespace AdventOfCodeTest2022.Day7 {
 	public class DirectoryManagerTest {
-<<<<<<< Updated upstream
-        DirectoryManager dirManager;
-        [SetUp]
-		public void Setup() {
-			dirManager = new DirectoryManager();
-		}
-		[Test]
-		public void CreateDir() {
-			dirManager.
-=======
 		DirectoryManager dirManager;
 		[SetUp]
 		public void Setup() {
@@ -66,7 +56,6 @@ namespace AdventOfCodeTest2022.Day7 {
 			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
 
 			Assert.AreEqual(0, dirManager.CurrentDirectory.GetDirectorySize());
->>>>>>> Stashed changes
 		}
 	}
 }
