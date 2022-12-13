@@ -5,9 +5,11 @@ using System.Text;
 
 namespace AdventOfCode2022.Day7 {
 	public class Directory {
+		public Directory ParentDirectory { get; internal set; }
 		public List<Directory> ChildDirectories;
 		public List<File> Files;
-		public Directory(string name) {
+		public Directory(string name, Directory parent) {
+			ParentDirectory = parent;
 			Files = new List<File>();
 			ChildDirectories = new List<Directory>();
 			Name = name;
@@ -39,9 +41,5 @@ namespace AdventOfCode2022.Day7 {
 			});
 			return dirsAndSize;
 		}
-
-		//public int GetTotalSizeOfFilesInDirectory() {
-		//	return Files.Sum(file => file.Size);
-		//}
 	}
 }
