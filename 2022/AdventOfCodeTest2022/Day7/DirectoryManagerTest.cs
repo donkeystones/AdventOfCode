@@ -68,5 +68,36 @@ namespace AdventOfCodeTest2022.Day7 {
 
 			Assert.AreEqual(101000, dirManager.CurrentDirectory.GetDirectorySize());
 		}
+
+		[Test]
+		public void SummaryOfDirectoryOneDirectoryOneFile() {
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			dirManager.CurrentDirectory.CreateChildDirectory(new Directory("B"));
+			dirManager.CurrentDirectory.ChildDirectories[0].CreateFile(new File("study.txt", 100000));
+
+			Assert.AreEqual(new Dictionary<string, int>() { { "B", 100000 } }, dirManager.GetAllFolderSizes());
+		}
+
+		[Test]
+		public void SummaryOfDirectoryTwoDirectoriesOneFileInEach() {
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			dirManager.CurrentDirectory.CreateChildDirectory(new Directory("B"));
+			dirManager.CurrentDirectory.ChildDirectories[0].CreateFile(new File("study.txt", 100000));
+			dirManager.CurrentDirectory.CreateChildDirectory(new Directory("A"));
+			dirManager.CurrentDirectory.ChildDirectories[1].CreateFile(new File("study.txt", 100000));
+
+			Assert.AreEqual(new Dictionary<string, int>() { { "B", 100000 }, { "A", 100000 } }, dirManager.GetAllFolderSizes());
+		}
+
+		[Test]
+		public void SummaryOfDirectoryDirInDirOneFileInEach() {
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			dirManager.CurrentDirectory.CreateChildDirectory(new Directory("B"));
+			dirManager.CurrentDirectory.ChildDirectories[0].CreateFile(new File("study.txt", 100000));
+			dirManager.CurrentDirectory.ChildDirectories[0].CreateChildDirectory(new Directory("A"));
+			dirManager.CurrentDirectory.ChildDirectories[0].ChildDirectories[0].CreateFile(new File("study.txt", 100000));
+
+			Assert.AreEqual(new Dictionary<string, int>() { { "B", 200000 }, { "A", 100000 } }, dirManager.GetAllFolderSizes());
+		}
 	}
 }

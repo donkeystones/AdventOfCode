@@ -14,5 +14,13 @@ namespace AdventOfCode2022.Day7 {
 		public void ChangeCurrentDirectory(Directory rootDir) {
 			CurrentDirectory = rootDir;
 		}
+
+		public Dictionary<string, int> GetAllFolderSizes() {
+			Dictionary<string, int> dirsAndSize = new Dictionary<string, int>();
+			RootDir.ChildDirectories.ForEach(dir => {
+				dirsAndSize = dir.GetDirectorySize(dirsAndSize);
+			});
+			return dirsAndSize;
+		}
 	}
 }

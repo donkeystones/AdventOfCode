@@ -31,5 +31,17 @@ namespace AdventOfCode2022.Day7 {
 			total += Files.Sum(file => file.Size);
 			return total;
 		}
+
+		internal Dictionary<string, int> GetDirectorySize(Dictionary<string, int> dirsAndSize) {
+			dirsAndSize.Add(Name, GetDirectorySize());
+			ChildDirectories.ForEach(dir => {
+				dirsAndSize = dir.GetDirectorySize(dirsAndSize);
+			});
+			return dirsAndSize;
+		}
+
+		//public int GetTotalSizeOfFilesInDirectory() {
+		//	return Files.Sum(file => file.Size);
+		//}
 	}
 }
