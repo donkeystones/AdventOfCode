@@ -11,6 +11,6 @@ namespace AdventOfCode2022.Day7 {
 	public class Command {
 		public CommandType Type { get; set; }
 		public string Name { get; set; }
-		public int? Size { get; set; }
+		public int Size { get; set; }
 	}
 }

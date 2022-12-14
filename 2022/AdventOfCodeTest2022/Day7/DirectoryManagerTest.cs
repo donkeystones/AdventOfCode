@@ -174,6 +174,17 @@ namespace AdventOfCodeTest2022.Day7 {
 
 			dirManager.ParseData(data);
 			dirManager.ExecuteCommands();
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+		}
+
+		[Test]
+		public void SumOfAllSizesLessThanHundredThousand() {
+			string data = "$ ls\ndir a\n14848514 b.txt\n8504156 c.dat\ndir d\n$ cd a\n$ ls\ndir e\n29116 f\n2557 g\n62596 h.lst\n$ cd e\n$ ls\n584 i\n$ cd..\n$ cd..\n$ cd d\n$ ls\n4060174 j\n8033020 d.log\n5626152 d.ext\n7214296 k";
+
+			dirManager.ParseData(data);
+			dirManager.ExecuteCommands();
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			Assert.AreEqual(95437, dirManager.SumOfFolders());
 		}
 
 	}

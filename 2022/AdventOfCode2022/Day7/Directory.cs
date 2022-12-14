@@ -34,8 +34,10 @@ namespace AdventOfCode2022.Day7 {
 			return total;
 		}
 
+
 		internal Dictionary<string, int> GetDirectorySize(Dictionary<string, int> dirsAndSize) {
-			dirsAndSize.Add(Name, GetDirectorySize());
+			Random rand = new Random();
+			dirsAndSize.Add(Name + rand.Next(1,1000000000).ToString(), GetDirectorySize()); //Quickfix, will refactor when I feel like it...
 			ChildDirectories.ForEach(dir => {
 				dirsAndSize = dir.GetDirectorySize(dirsAndSize);
 			});

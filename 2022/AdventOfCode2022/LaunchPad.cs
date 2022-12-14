@@ -6,6 +6,7 @@ using AdventOfCode2022.Day2;
 using AdventOfCode2022.Day3;
 using AdventOfCode2022.Day4;
 using AdventOfCode2022.Day5;
+using AdventOfCode2022.Day7;
 
 namespace AdventOfCode2022 {
 	public class LaunchPad {
@@ -82,6 +83,23 @@ namespace AdventOfCode2022 {
 			CommunicationTuner tuner = new CommunicationTuner();
 			Console.WriteLine("Start of packet index: " + tuner.GetStartOfPacketMarkerIndex(data));
 			Console.WriteLine("Start of message index: " + tuner.GetStartOfMessageMarkerIndex(data));
+		}
+
+		public void Day7() {
+			string data = "";
+			foreach(string str in System.IO.File.ReadLines("./Day7/input.txt")) {
+				data += str + "\n";
+			}
+
+			DirectoryManager dirManager = new DirectoryManager();
+
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			dirManager.ParseData(data);
+			Console.WriteLine(dirManager.GetAllFolderSizes().Values.Count);
+			dirManager.ExecuteCommands();
+			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
+			Console.WriteLine("Part 1: " + dirManager.SumOfFolders());
+			Console.WriteLine(dirManager.FolderRequiredToDelete());
 		}
 	}
 }

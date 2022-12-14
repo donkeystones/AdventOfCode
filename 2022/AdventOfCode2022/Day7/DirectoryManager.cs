@@ -33,6 +33,8 @@ namespace AdventOfCode2022.Day7 {
 		}
 
 		public void ParseCommand(string command) {
+			if(command == "")
+				return;
 			string[] commandArr = command.Split(" ");
 
 			if(commandArr[0] == "dir")
@@ -61,9 +63,40 @@ namespace AdventOfCode2022.Day7 {
 		}
 
 		public void ExecuteCommands() {
+			CurrentDirectory = RootDir;
 			foreach(Command command in Commands) {
-
+				switch(command.Type) {
+					case CommandType.CREATE_DIRECTORY:
+						CurrentDirectory.CreateChildDirectory(new Directory(command.Name, CurrentDirectory));
+						break;
+					case CommandType.CREATE_FILE:
+						CurrentDirectory.CreateFile(new File(command.Name, command.Size));
+						break;
+					case CommandType.CHANGE_DIRECTORY: //Should probably rewrite changeDirectory to handle ".." in the actual method...
+						ChangeCurrentDirectory(command.Name == ".." ? CurrentDirectory.ParentDirectory : CurrentDirectory.ChildDirectories.Find(dir => dir.Name == command.Name));
+						break;
+				default: break;
+				}
 			}
+		}
+
+		public int SumOfFolders() {
+			int total = 0;
+			foreach(KeyValuePair<string, int> dir in GetAllFolderSizes()) {
+				if(dir.Value < 100000)
+					total += dir.Value;
+			}
+			return total;
+		}
+
+		public int FolderRequiredToDelete() {
+			int total = 0;
+			foreach(KeyValuePair<string, int> dir in GetAllFolderSizes()) {
+				total += dir.Value;
+				if(dir.Value > 8381165)
+					Console.WriteLine(dir.Key + ": " + dir.Value);
+			}
+			return total;
 		}
 	}
 }
