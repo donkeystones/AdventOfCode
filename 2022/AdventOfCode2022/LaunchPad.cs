@@ -7,6 +7,7 @@ using AdventOfCode2022.Day3;
 using AdventOfCode2022.Day4;
 using AdventOfCode2022.Day5;
 using AdventOfCode2022.Day7;
+using AdventOfCode2022.Day8;
 
 namespace AdventOfCode2022 {
 	public class LaunchPad {
@@ -100,6 +101,18 @@ namespace AdventOfCode2022 {
 			dirManager.ChangeCurrentDirectory(dirManager.RootDir);
 			Console.WriteLine("Part 1: " + dirManager.SumOfFolders());
 			Console.WriteLine(dirManager.FolderRequiredToDelete());
+		}
+
+		public void Day8() {
+			string data = "";
+			foreach(string str in System.IO.File.ReadLines("./Day8/input.txt")) {
+				data += str + "\n";
+			}
+
+			TreeVisibility tree = new TreeVisibility();
+
+			tree.LoadData(data);
+			Console.WriteLine("total visible trees: " + tree.GetTotalVisibleTrees(tree.TreeData));
 		}
 	}
 }
