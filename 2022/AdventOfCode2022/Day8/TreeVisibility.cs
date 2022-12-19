@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace AdventOfCode2022.Day8 {
@@ -44,26 +45,11 @@ namespace AdventOfCode2022.Day8 {
 			return false;
 		}
 
-		private void DebugTreeData(int[,] treeData, int iny, int inx) {
-			Console.WriteLine("\n\nNumber on X: " + treeData[iny, inx]);
-			for(int y = 0; y <= treeData.GetUpperBound(0);y++) {
-				for(int x = 0;x <= treeData.GetUpperBound(1);x++) {
-					if(x == inx && y == iny)
-						Console.Write(" X ");
-					else 
-						Console.Write(" " + treeData[y, x]+ " ");
-				}
-				Console.WriteLine();
-			}
-		}
-
 		public int GetTotalVisibleTrees(int[,] treeData) {
 			int total = 0;
-			for(int y = 1; y < treeData.GetUpperBound(0);y++) {
+			for(int y = 1; y < treeData.GetUpperBound(0)-1;y++) {
 				for(int x = 1; x < treeData.GetUpperBound(1);x++) {
-					DebugTreeData(treeData, y, x);
 					if(CheckVisibility(treeData,y,x)) {
-						Console.WriteLine("Is hidden!");
 						total += 1;
 					}
 				}

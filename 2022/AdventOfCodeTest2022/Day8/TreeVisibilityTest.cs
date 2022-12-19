@@ -18,8 +18,8 @@ namespace AdventOfCodeTest2022.Day8 {
 							{ 1,2,1,2,1 },
 							{ 1,1,1,1,1 },};
 		[Test]
-		public void TwentyOneTressShouldBeVisible() {
-			Assert.AreEqual(22, treeVisibility.GetTotalVisibleTrees(treeData));
+		public void TwentyFiveTressShouldBeVisible() {
+			Assert.AreEqual(25, treeVisibility.GetTotalVisibleTrees(treeData));
 		}
 
 		[Test]
@@ -75,7 +75,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void CheckUpShouldReturnTrue() {
-			Assert.AreEqual(true, treeVisibility.CheckUp(treeData2, 4, 4));
+			Assert.AreEqual(true, treeVisibility.CheckUp(treeData2, 4, 3));
 		}
 
 		[Test]
@@ -85,7 +85,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void CheckDownShouldReturnTrue() {
-			Assert.AreEqual(true, treeVisibility.CheckDown(treeData2, 1, 4));
+			Assert.AreEqual(true, treeVisibility.CheckDown(treeData2, 1, 3));
 		}
 
 		[Test]
@@ -113,7 +113,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsUpmostrightCorner() {
-			string data = "11121\n54322\n65431\n76541\n87651";
+			string data = "11131\n54323\n65431\n76541\n87651";
 
 
 			treeVisibility.LoadData(data);
@@ -122,7 +122,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsUpmostLeftCorner() {
-			string data = "12111\n22345\n13456\n14567\n15678";
+			string data = "13111\n32345\n13456\n14567\n15678";
 
 
 			treeVisibility.LoadData(data);
@@ -131,7 +131,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsLowerMostLeftCorner() {
-			string data = "15678\n14567\n13456\n22345\n12111";
+			string data = "15678\n14567\n13456\n32345\n13111";
 
 
 			treeVisibility.LoadData(data);
@@ -140,11 +140,14 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsLowerMostRightCorner() { 
-			string data = "87651\n76541\n65421\n54322\n11121";
+			string data = "87651\n76541\n65421\n54323\n11131";
 
 
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
+
+
+
 	}
 }
