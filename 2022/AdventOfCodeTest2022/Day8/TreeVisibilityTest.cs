@@ -120,6 +120,40 @@ namespace AdventOfCodeTest2022.Day8 {
 			Assert.AreEqual(16, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
 
+		[Test]
+		public void OnlyHiddenTreeIsUpmostrightCorner() {
+			string data = "11121\n54322\n65431\n76541\n87651";
 
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
+
+		[Test]
+		public void OnlyHiddenTreeIsUpmostLeftCorner() {
+			string data = "12111\n22345\n13456\n14567\n15678";
+
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
+
+		[Test]
+		public void OnlyHiddenTreeIsLowerMostLeftCorner() {
+			string data = "15678\n14567\n13456\n22345\n12111";
+
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
+
+		[Test]
+		public void OnlyHiddenTreeIsLowerMostRightCorner() { 
+			string data = "87651\n76541\n65421\n54322\n11121";
+
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
 	}
 }

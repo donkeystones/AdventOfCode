@@ -65,9 +65,9 @@ namespace AdventOfCode2022.Day8 {
 			int total = 0;
 			for(int y = 1; y < treeData.GetUpperBound(0);y++) {
 				for(int x = 1; x < treeData.GetUpperBound(1);x++) {
-					//DebugTreeData(treeData, y, x);
+					DebugTreeData(treeData, y, x);
 					if(CheckVisibility(treeData,y,x)) {
-						//Console.WriteLine("Is hidden!");
+						Console.WriteLine("Is hidden!");
 						total += 1;
 					}
 				}
