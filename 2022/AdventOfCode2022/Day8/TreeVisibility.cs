@@ -5,10 +5,6 @@ using System.Text;
 namespace AdventOfCode2022.Day8 {
 	public class TreeVisibility {
 		public int[,] TreeData { get; internal set; }
-		public bool CheckVisibility(int middle, int left, int right, int down) => 
-				middle <= left &&
-				middle <= right &&
-				middle <= down;
 
 		public bool CheckVisibility(int[,] treeData, int y, int x) =>
 				CheckRight(treeData, y, x) &&

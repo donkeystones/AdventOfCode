@@ -11,15 +11,6 @@ namespace AdventOfCodeTest2022.Day8 {
 		public void Setup() {
 			treeVisibility = new TreeVisibility();
 		}
-		[Test]
-		public void MiddleTreeShouldNotBeVisible() {
-			Assert.AreEqual(true, treeVisibility.CheckVisibility(1, 2, 2, 2));
-		}
-
-		[Test]
-		public void MiddleTreeNotShouldBeVisibleFromLeft() {
-			Assert.AreEqual(true, treeVisibility.CheckVisibility(1, 1, 2, 2));
-		}
 
 		readonly int[,] treeData = { { 1,1,1,1,1 },
 							{ 1,2,1,2,1 },
