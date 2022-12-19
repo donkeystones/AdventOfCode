@@ -56,5 +56,59 @@ namespace AdventOfCodeTest2022.Day8 {
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(21, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
+
+		readonly int[,] treeData2 = { { 1,1,1,1,1 },
+							{ 1,2,1,0,2 },
+							{ 1,2,1,2,1 },
+							{ 1,2,1,1,1 },
+							{ 1,1,1,1,2 },};
+		[Test]
+		public void CheckRightShouldReturnTrue() {
+			Assert.AreEqual(true,treeVisibility.CheckRight(treeData2, 1, 2));
+		}
+
+		[Test]
+		public void CheckRightShouldReturnFalse() {
+			Assert.AreEqual(false, treeVisibility.CheckRight(treeData2, 3, 1));
+		}
+
+		[Test]
+		public void CheckLeftShouldReturnTrue() {
+			Assert.AreEqual(true, treeVisibility.CheckLeft(treeData2, 1, 2));
+		}
+
+		[Test]
+		public void CheckLeftShouldReturnFalse() {
+			Assert.AreEqual(false, treeVisibility.CheckLeft(treeData2, 4, 4));
+		}
+
+		[Test]
+		public void CheckUpShouldReturnTrue() {
+			Assert.AreEqual(true, treeVisibility.CheckUp(treeData2, 4, 4));
+		}
+
+		[Test]
+		public void CheckUpShouldReturnFalse() {
+			Assert.AreEqual(false, treeVisibility.CheckUp(treeData2, 1, 1));
+		}
+
+		[Test]
+		public void CheckDownShouldReturnTrue() {
+			Assert.AreEqual(true, treeVisibility.CheckDown(treeData2, 1, 4));
+		}
+
+		[Test]
+		public void CheckDownShouldReturnFalse() {
+			Assert.AreEqual(false, treeVisibility.CheckDown(treeData2, 2, 3));
+		}
+
+		[Test]
+		public void TestWithDataOfTreesHiddenFartherBetween() {
+			string data = "26345\n17235\n71127\n26421\n81351";
+
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(20, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
 	}
 }

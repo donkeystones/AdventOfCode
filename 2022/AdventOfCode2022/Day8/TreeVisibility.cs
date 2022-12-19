@@ -10,15 +10,64 @@ namespace AdventOfCode2022.Day8 {
 				middle <= right &&
 				middle <= down;
 
+		public bool CheckVisibility(int[,] treeData, int y, int x) =>
+				CheckRight(treeData, y, x) &&
+				CheckLeft(treeData, y, x) &&
+				CheckUp(treeData, y, x) &&
+				CheckDown(treeData, y, x);
+
+		public bool CheckRight(int[,] treeData, int input_y, int input_x) {
+			for(int x = input_x+1; x <= treeData.GetUpperBound(1);x++) {
+				if(treeData[input_y, input_x] <= treeData[input_y, x])
+					return true;
+			}
+			return false;
+		}
+
+		public bool CheckLeft(int[,] treeData, int input_y, int input_x) {
+			for(int x = input_x - 1;x >= 0;x--) {
+				if(treeData[input_y, input_x] <= treeData[input_y, x])
+					return true;
+			}
+			return false;
+		}
+
+		public bool CheckUp(int[,] treeData, int input_y, int input_x) {
+			for(int y = input_y - 1;y >= 0;y--) {
+				if(treeData[input_y, input_x] <= treeData[y, input_x])
+					return true;
+			}
+			return false;
+		}
+
+		public bool CheckDown(int[,] treeData, int input_y, int input_x) {
+			for(int y = input_y + 1;y <= treeData.GetUpperBound(0);y++) {
+				if(treeData[input_y, input_x] <= treeData[y, input_x])
+					return true;
+			}
+			return false;
+		}
+
+		private void DebugTreeData(int[,] treeData, int iny, int inx) {
+			Console.WriteLine("\n\nNumber on X: " + treeData[iny, inx]);
+			for(int y = 0; y <= treeData.GetUpperBound(0);y++) {
+				for(int x = 0;x <= treeData.GetUpperBound(1);x++) {
+					if(x == inx && y == iny)
+						Console.Write(" X ");
+					else 
+						Console.Write(" " + treeData[y, x]+ " ");
+				}
+				Console.WriteLine();
+			}
+		}
+
 		public int GetTotalVisibleTrees(int[,] treeData) {
 			int total = 0;
 			for(int y = 1; y < treeData.GetUpperBound(0);y++) {
 				for(int x = 1; x < treeData.GetUpperBound(1);x++) {
-					if(CheckVisibility(treeData[y, x], 
-									   treeData[y, x - 1], 
-									   treeData[y, x + 1], 
-									   treeData[y + 1, x])) {
-						Console.WriteLine(treeData[y, x]);
+					//DebugTreeData(treeData, y, x);
+					if(CheckVisibility(treeData,y,x)) {
+						//Console.WriteLine("Is hidden!");
 						total += 1;
 					}
 				}
