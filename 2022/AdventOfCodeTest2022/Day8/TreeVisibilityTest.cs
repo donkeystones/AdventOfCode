@@ -110,5 +110,16 @@ namespace AdventOfCodeTest2022.Day8 {
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(20, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
+
+		[Test]
+		public void OnesAndTwosNewEachOther() {
+			string data = "22222\n21112\n21112\n21112\n22222";
+
+
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(16, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
+		}
+
+
 	}
 }
