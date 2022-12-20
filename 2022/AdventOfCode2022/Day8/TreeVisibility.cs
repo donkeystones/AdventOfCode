@@ -82,5 +82,68 @@ namespace AdventOfCode2022.Day8 {
 				}
 			}
 		}
+
+		public int TreesSeenRight(int[,] treeData, int input_y, int input_x) {
+			int total = 0;
+			for(int x = input_x + 1;x <= treeData.GetUpperBound(1);x++) {
+				total++;
+				if(treeData[input_y, input_x] <= treeData[input_y, x])
+					return total;
+				
+			}
+			return total;
+		}
+
+		public int TreesSeenLeft(int[,] treeData, int input_y, int input_x) {
+			int total = 0;
+			for(int x = input_x - 1;x >= 0;x--) {
+				total++;
+				if(treeData[input_y, input_x] <= treeData[input_y, x])
+					return total;
+
+			}
+			return total;
+		}
+
+		public int TreesSeenUp(int[,] treeData, int input_y, int input_x) {
+			int total = 0;
+			for(int y = input_y - 1;y >= 0;y--) {
+				total++;
+				if(treeData[input_y, input_x] <= treeData[y, input_x])
+					return total;
+
+			}
+			return total;
+		}
+
+		public int TreesSeenDown(int[,] treeData, int input_y, int input_x) {
+			int total = 0;
+			for(int y = input_y + 1;y <= treeData.GetUpperBound(0);y++) {
+				total++;
+				if(treeData[input_y, input_x] <= treeData[y, input_x])
+					return total;
+
+			}
+			return total;
+		}
+
+		public int GetScenicScore(int[,] treeData, int y, int x) {
+			return TreesSeenRight(treeData, y, x) *
+				TreesSeenLeft(treeData, y, x) *
+				TreesSeenUp(treeData, y, x) *
+				TreesSeenDown(treeData, y, x);
+		}
+
+		public int CalculateHighestScenicScore(int[,] treeData) {
+			int highest = 0;
+			for(int y = 0;y < treeData.GetUpperBound(0);y++) {
+				for(int x = 0;x < treeData.GetUpperBound(1);x++) {
+					int scenic = GetScenicScore(treeData, y, x);
+					if(scenic > highest)
+						highest = scenic;
+				}
+			}
+			return highest;
+		}
 	}
 }

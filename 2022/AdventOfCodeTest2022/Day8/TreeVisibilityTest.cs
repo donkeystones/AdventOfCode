@@ -167,8 +167,8 @@ namespace AdventOfCodeTest2022.Day8 {
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
-
-		public void CheckScenicScore() {
+		[Test]
+		public void GetScenicScoreOf1() {
 			string data = "22222\n" +
 						  "21112\n" +
 						  "20102\n" +
@@ -176,6 +176,16 @@ namespace AdventOfCodeTest2022.Day8 {
 						  "22222\n";
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(1, treeVisibility.GetScenicScore(treeVisibility.TreeData, 1, 2));
+		}
+		[Test]
+		public void GetScenicScoreOf6() {
+			string data = "22222\n" +
+						  "21112\n" +
+						  "20102\n" +
+						  "21002\n" +
+						  "22222\n";
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(6, treeVisibility.GetScenicScore(treeVisibility.TreeData, 3, 1));
 		}
 
 	}

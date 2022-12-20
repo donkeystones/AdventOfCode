@@ -113,6 +113,7 @@ namespace AdventOfCode2022 {
 
 			tree.LoadData(data);
 			Console.WriteLine("total visible trees: " + tree.GetTotalVisibleTrees(tree.TreeData));
+			Console.WriteLine("highest scenic score: " + tree.CalculateHighestScenicScore(tree.TreeData));
 		}
 	}
 }
