@@ -45,9 +45,23 @@ namespace AdventOfCode2022.Day8 {
 			return false;
 		}
 
+		public void Debug(int[,] treeData, int iny, int inx) {
+			Console.WriteLine("Number On X: " + treeData[iny, inx]);
+			Console.WriteLine("IsHidden: " + CheckVisibility(treeData,iny, inx));
+			for(int y = 0;y <= treeData.GetUpperBound(0);y++) {
+				for(int x = 0;x <= treeData.GetUpperBound(1);x++) {
+					if(y == iny && x == inx)
+						Console.Write("X ");
+					else 
+						Console.Write(treeData[y, x] + " ");
+				}
+				Console.WriteLine();
+			}
+		}
+
 		public int GetTotalVisibleTrees(int[,] treeData) {
 			int total = 0;
-			for(int y = 1; y < treeData.GetUpperBound(0)-1;y++) {
+			for(int y = 1; y < treeData.GetUpperBound(0);y++) {
 				for(int x = 1; x < treeData.GetUpperBound(1);x++) {
 					if(CheckVisibility(treeData,y,x)) {
 						total += 1;
@@ -59,7 +73,7 @@ namespace AdventOfCode2022.Day8 {
 
 		public void LoadData(string data) {
 			string[] dataArr = data.Split("\n");
-			TreeData = new int[dataArr.Length, dataArr[0].Length];
+			TreeData = new int[dataArr.Length-1, dataArr[0].Length];
 
 			for(int y = 0; y < dataArr.Length; y++) {
 				for(int x = 0;x < dataArr[y].Length;x++) {

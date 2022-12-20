@@ -19,12 +19,12 @@ namespace AdventOfCodeTest2022.Day8 {
 							{ 1,1,1,1,1 },};
 		[Test]
 		public void TwentyFiveTressShouldBeVisible() {
-			Assert.AreEqual(25, treeVisibility.GetTotalVisibleTrees(treeData));
+			Assert.AreEqual(22, treeVisibility.GetTotalVisibleTrees(treeData));
 		}
 
 		[Test]
 		public void LoadTreeData() {
-			string data = "30373\n25512\n65332\n33549\n35390";
+			string data = "30373\n25512\n65332\n33549\n35390\n";
 
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(4,treeVisibility.TreeData.GetUpperBound(0));
@@ -33,7 +33,7 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void LoadTreeData3x5() {
-			string data = "30373\n25512\n65332";
+			string data = "30373\n25512\n65332\n";
 
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(2, treeVisibility.TreeData.GetUpperBound(0));
@@ -42,13 +42,14 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void TestAOC() {
-			string data = "30373\n25512\n65332\n33549\n35390";
+			string data = "30373\n25512\n65332\n33549\n35390\n";
 
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(21, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
 
-		readonly int[,] treeData2 = { { 1,1,1,1,1 },
+		readonly int[,] treeData2 = { 
+							{ 1,1,1,1,1 },
 							{ 1,2,1,0,2 },
 							{ 1,2,1,2,1 },
 							{ 1,2,1,1,1 },
@@ -95,7 +96,11 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void TestWithDataOfTreesHiddenFartherBetween() {
-			string data = "26345\n17235\n71127\n26421\n81351";
+			string data = "26345\n" +
+						  "17235\n" +
+						  "71127\n" +
+						  "26421\n" +
+						  "81351\n";
 
 
 			treeVisibility.LoadData(data);
@@ -104,7 +109,11 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnesAndTwosNewEachOther() {
-			string data = "22222\n21112\n21112\n21112\n22222";
+			string data = "22222\n" +
+						  "21112\n" +
+						  "21112\n" +
+						  "21112\n" +
+						  "22222\n";
 
 
 			treeVisibility.LoadData(data);
@@ -113,7 +122,11 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsUpmostrightCorner() {
-			string data = "11131\n54323\n65431\n76541\n87651";
+			string data = "11131\n" +
+						  "54323\n" +
+						  "65431\n" +
+						  "76541\n" +
+						  "87651\n";
 
 
 			treeVisibility.LoadData(data);
@@ -122,7 +135,11 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsUpmostLeftCorner() {
-			string data = "13111\n32345\n13456\n14567\n15678";
+			string data = "13111\n" +
+						  "32345\n" +
+						  "13456\n" +
+						  "14567\n" +
+						  "15678\n";
 
 
 			treeVisibility.LoadData(data);
@@ -131,7 +148,11 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsLowerMostLeftCorner() {
-			string data = "15678\n14567\n13456\n32345\n13111";
+			string data = "15678\n" +
+						  "14567\n" +
+						  "13456\n" +
+						  "32345\n" +
+						  "13111\n";
 
 
 			treeVisibility.LoadData(data);
@@ -140,14 +161,22 @@ namespace AdventOfCodeTest2022.Day8 {
 
 		[Test]
 		public void OnlyHiddenTreeIsLowerMostRightCorner() { 
-			string data = "87651\n76541\n65421\n54323\n11131";
+			string data = "87651\n76541\n65421\n54323\n11131\n";
 
 
 			treeVisibility.LoadData(data);
 			Assert.AreEqual(24, treeVisibility.GetTotalVisibleTrees(treeVisibility.TreeData));
 		}
 
-
+		public void CheckScenicScore() {
+			string data = "22222\n" +
+						  "21112\n" +
+						  "20102\n" +
+						  "20002\n" +
+						  "22222\n";
+			treeVisibility.LoadData(data);
+			Assert.AreEqual(1, treeVisibility.GetScenicScore(treeVisibility.TreeData, 1, 2));
+		}
 
 	}
 }
