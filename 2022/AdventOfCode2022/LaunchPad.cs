@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using AdventOfCode2022.Day1;
+using AdventOfCode2022.Day10;
 using AdventOfCode2022.Day2;
 using AdventOfCode2022.Day3;
 using AdventOfCode2022.Day4;
@@ -114,6 +115,17 @@ namespace AdventOfCode2022 {
 			tree.LoadData(data);
 			Console.WriteLine("total visible trees: " + tree.GetTotalVisibleTrees(tree.TreeData));
 			Console.WriteLine("highest scenic score: " + tree.CalculateHighestScenicScore(tree.TreeData));
+		}
+
+		public void Day10() {
+			string data = "";
+			foreach(string str in System.IO.File.ReadLines("./Day10/input.txt")) {
+				data += str + "\n";
+			}
+
+			ClockCircuit clock = new ClockCircuit();
+			clock.RunCommands(data);
+			Console.WriteLine("Cycles: " + clock.Cycles + "\nRegister: " + clock.Register);
 		}
 	}
 }

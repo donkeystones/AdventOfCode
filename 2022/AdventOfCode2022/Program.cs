@@ -8,11 +8,7 @@ namespace AdventOfCode2022 {
 	class Program {
 		static void Main(string[] args) {
 			LaunchPad launch = new LaunchPad();
-			launch.Day8();
-
-			//Part One: 1713
-			//Part Two: 268464
-
+			launch.Day10();
 		}
 	}
 }
